@@ -3,6 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import http from 'http';
 import socketIo from 'socket.io';
+import 'dotenv/config';
 
 import sessionRouter from '../routes/Session';
 import userRouter from '../routes/User';
@@ -27,6 +28,8 @@ export default (function() {
   app.use(sessionRouter);
   app.use(userRouter);
   app.use(productRouter);
+
+  app.set('port', process.env.PORT || 3333);
 
   return app;
 })();

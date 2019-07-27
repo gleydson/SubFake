@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import http from 'http';
+import { Server } from 'http';
 import socketIo from 'socket.io';
 import 'dotenv/config';
 
@@ -10,7 +10,7 @@ import userRouter from '../routes/User';
 import productRouter from '../routes/Product';
 
 const app = express();
-const server = http.Server(app);
+const server = Server(app);
 const io = socketIo(server);
 
 export default (function() {
